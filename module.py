@@ -3,7 +3,7 @@ import statistics
 air_quality_table = [141, 53, 46, 142, 153, 136, 52, 55, 23, 73]
 
 # function that returns the mean from any length list of numerical data
-def mean_calculation(air_quality_table) -> int:
+def mean_calculation(air_quality_table) -> float:
     mean = sum(air_quality_table) / len(air_quality_table)
     print(f"The Mean value is: {mean}")
     
@@ -40,10 +40,38 @@ locations = ["Airdrie", "Ardrossan", "Banff South of Bow River", "Brooks Meadowp
 get_air_quality = air_quality(locations)
 print(f"The air quality values are: {get_air_quality}")
  
-
 #A function that when passed a list of numbers and a parallel list of locations, returns a list of the names of the two locations with the worst (highest) values.
 
+def worst_two(locations, values) -> None:
+    worst_index = 0
+    second_worst_index = 1
 
+    if values[0] < values[1]:
+        worst_index = 1
+        second_worst_index = 0
+
+    i = 0
+    while i < len(values):
+        if values[i] > values[worst_index]:
+            worst_index = i
+
+        elif values[i] > values[second_worst_index]:
+            second_worst_index = i
+        
+        i+=1
+
+    return(locations[worst_index], locations[second_worst_index])
 
 #A function that when passed a list of numbers, tallies the number of items that would qualify as ‘Good’ (i.e. <= 50) and returns that tally as a percentage of data locations.
 
+def good_locations(values) -> None:
+    good_counter = 0
+    i = 0
+    while i < len(values):
+        if values[i] <= 50:
+            good_counter +=1
+        i+=1
+    good_percentage = (good_counter/len(values))*100
+    return good_percentage
+    
+    
