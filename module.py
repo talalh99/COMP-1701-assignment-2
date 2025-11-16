@@ -37,8 +37,6 @@ def air_quality(locations):
     return air_quality_values
 
 locations = ["Airdrie", "Ardrossan", "Banff South of Bow River", "Brooks Meadowplace", "Calgary Varsity", "Caroline", "Cold Lake South", "Conklin Community", "Cougar Point Road, Canmore", "Drayton Valley"]
-get_air_quality = air_quality(locations)
-print(f"The air quality values are: {get_air_quality}")
  
 #A function that when passed a list of numbers and a parallel list of locations, returns a list of the names of the two locations with the worst (highest) values.
 
